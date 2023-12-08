@@ -8,14 +8,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.phoneapp.databinding.ItemRvBinding
 
 
-class ContactAdapter(val contactList: List<User>, val listener: ContactAdapter.Listener) :
+class ContactAdapter(val contactList: List<User>, val listener: contactFragment) :
     RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() {
-    
-    interface Listener {
-        fun onContactDelete(user: User)
+
+    interface Listener{
+        fun onCreateDeleted(user: User)
+        fun onCreateUpdate(user: User)
     }
-    
-    
+
+
     class ContactViewHolder(val binding:ItemRvBinding) : RecyclerView.ViewHolder(binding.root)
     
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
@@ -43,15 +44,25 @@ class ContactAdapter(val contactList: List<User>, val listener: ContactAdapter.L
                 email.text = contact.email
                 phone.text = contact.phone
             }
-            
-            holder.binding.root.setOnLongClickListener {
-                Log.d("TAG", "long Clicked: ${contact.uid} ")
-                
-                listener.onContactDelete(contact)
-                
-                true
+
+            // Long click delete // object : View.OnLongClickListener
+            holder.binding.root.setOnLongClickListener (object : View.OnLongClickListener {
+                override fun onLongClick(v: View?): Boolean {
+
+                    Log.d("TAG", "onLongClick: ${contact.uid} ")
+
+                    listener.onCreateDeleted(contact)
+
+                    return true
+                }
+            })
+
+            holder.binding.edite.setOnClickListener {
+
+                listener.onCreateUpdate(contact)
+
             }
-            
+
             
         }
         

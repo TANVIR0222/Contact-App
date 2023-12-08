@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_margin="5dp"
     android:layout_height="wrap_content">
 
+
+    <ImageView
+        android:id="@+id/edite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_mode_edit_24"
+        android:layout_gravity="end"
+        android:layout_margin="5dp"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -10,12 +22,13 @@
         android:layout_margin="5dp"
         android:orientation="vertical">
 
+
         <TextView
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawablePadding="5dp"
-
+            android:layout_marginStart="5dp"
             android:gravity="start"
             android:text="Tanvir"
             android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
@@ -26,6 +39,8 @@
             android:layout_height="wrap_content"
             android:drawablePadding="5dp"
             android:gravity="start"
+            android:layout_marginStart="5dp"
+
             android:text="tanvir@email.com"
             android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
 
@@ -35,8 +50,10 @@
             android:layout_height="wrap_content"
             android:drawablePadding="5dp"
             android:gravity="start"
+            android:layout_marginStart="5dp"
             android:text="+01700000000"
             android:textAppearance="@style/TextAppearance.Material3.TitleSmall" />
+
 
 
     </LinearLayout>
