@@ -1,11 +1,13 @@
-package com.example.phoneapp
+package com.example.phoneapp.views.Adapter
 
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.phoneapp.data.local_db.User
 import com.example.phoneapp.databinding.ItemRvBinding
+import com.example.phoneapp.views.contactFragment
 
 
 class ContactAdapter(val contactList: List<User>, val listener: contactFragment) :

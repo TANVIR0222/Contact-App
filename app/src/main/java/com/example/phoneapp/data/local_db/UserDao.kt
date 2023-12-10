@@ -1,4 +1,4 @@
-package com.example.phoneapp
+package com.example.phoneapp.data.local_db
 
 import androidx.room.Dao
 import androidx.room.Delete

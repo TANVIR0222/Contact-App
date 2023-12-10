@@ -1,4 +1,4 @@
-package com.example.phoneapp
+package com.example.phoneapp.views
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,11 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import androidx.room.Room
+import com.example.phoneapp.data.local_db.Mydb
+import com.example.phoneapp.data.local_db.User
 import com.example.phoneapp.databinding.FragmentCreateContactBinding
 
 class createContactFragment : Fragment() {
-    lateinit var db: AppDatabase
 
     lateinit var binding: FragmentCreateContactBinding
     override fun onCreateView(
@@ -19,11 +19,6 @@ class createContactFragment : Fragment() {
     ): View? {
         binding = FragmentCreateContactBinding.inflate(inflater,container,false)
 
-        db = Room.databaseBuilder(
-            requireContext(),
-            AppDatabase::class.java,
-            "contact-db"
-        ).allowMainThreadQueries().build()
 
         return binding.root
     }
@@ -39,8 +34,8 @@ class createContactFragment : Fragment() {
             val phone = binding.phone.text.toString().trim()
 
             val user = User(name = name, email = email, phone = phone)
-            db.userDao().insert(user)
 
+            Mydb.instance(requireContext()).userDao().insert(user)
             findNavController().popBackStack()
 
         }
